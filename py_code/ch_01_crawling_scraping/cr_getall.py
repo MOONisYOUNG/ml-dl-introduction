@@ -27,9 +27,12 @@ def download_file(url):
         savepath += "index.html"
     savedir = os.path.dirname(savepath)
     
+    # 이미 path에 존재하는 파일명이라면 return으로 종료
     if os.path.exists(savepath):
         return savepath
-    else:
+    
+    # path에 없는 폴더명이라면 새로 폴더 만들기
+    if not os.path.exists(savedir):
         print("mkdir =", savedir)
         makedirs(savedir)
     
